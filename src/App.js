@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-
+import AuthService from './services/AuthService';
+import { useEffect } from 'react';
 function App() {
+  const { login } = AuthService();
+
+
+  useEffect(() => {
+    const test = async () => {
+      // const response = await login('admin', 'admin1');
+      // console.log(response);
+    }
+    test();
+  })
   return (
     <div className="App">
       <header className="App-header">
