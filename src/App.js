@@ -4,25 +4,28 @@ import './App.css';
 import AuthService from './services/AuthService';
 import { useEffect } from 'react';
 import User from "./components/User/User";
+import Navbar from "./components/Navbar/Navbar";
+import LoginRegisterForm from "./components/Login/Login";
 
 function App() {
-  const { login } = AuthService();
+    const { login } = AuthService();
 
+    useEffect(() => {
+        const test = async () => {
+            // const response = await login('admin', 'admin1');
+            // console.log(response);
+        }
+        test();
+    })
 
-  useEffect(() => {
-    const test = async () => {
-      // const response = await login('admin', 'admin1');
-      // console.log(response);
-    }
-    test();
-  })
-  return (
-    <div className="App">
-      
-      <User />
+    return (
+        <div className="App">
+            <Navbar />
+            <LoginRegisterForm />
+            <User />
+        </div>
+    );
 
-    </div>
-  );
 }
 
 export default App;

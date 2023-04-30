@@ -1,0 +1,98 @@
+/* Container for the entire Navbar */
+.h-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    height: 80px;
+}
+
+/* Container for the logo, search bar, and links */
+.h-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* Logo */
+.logo-notefy {
+    margin-right: auto;
+}
+
+/* Search bar */
+.h-search {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    background-color: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Add this property to make the search bar grow and fill the available space */
+}
+
+
+
+.h-search input {
+    flex-grow: 1;
+    padding: 5px; /* reduce the padding */
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+    outline: none;
+}
+
+
+.h-search input::placeholder {
+    color: #999;
+}
+
+.h-search .search-icon {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.h-search .search-icon:hover {
+    background-color: #666;
+}
+
+
+.h-search-button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.h-search-button:hover {
+    background-color: #666;
+}
+
+.h-menu {
+    display: flex;
+    align-items: center;
+}
+
+.h-menu a {
+    margin-left: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.h-menu a:hover {
+    color: #666;
+}
