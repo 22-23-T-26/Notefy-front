@@ -1,7 +1,9 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AuthService from './services/AuthService';
 import { useEffect } from 'react';
+import User from "./components/User/User";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 
@@ -20,8 +22,10 @@ function App() {
         <div className="App">
             <Navbar />
             <LoginRegisterForm />
+            <User />
         </div>
     );
+
 }
 
 export default App;
