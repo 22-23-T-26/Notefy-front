@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-search .form-control:focus {
+  box-shadow: none;
+}
+
+.navbar-search .no-hover-search-btn:hover {
+  color: gray;
+}
+.container-90{
+  width: 90% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+.font-bold{
+  font-weight: bold !important;
+}
+
+.shadow-bottom {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+.text-left{
+  text-align: left;
+}
+.place-self-center{
+  place-self: center
+}
+.float-right{
+  float: right
+}
+.fw-500{
+  font-weight: 500;
+}
