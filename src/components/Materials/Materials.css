@@ -1,0 +1,17 @@
+.left-wrapper{
+    width: 70%;
+}
+
+.right-wrapper{
+    width: 30%;
+}
+
+h4{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000000;
+    text-align: left;
+    padding-left: 10%;
+    margin: 50px 0px;
+}

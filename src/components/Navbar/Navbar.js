@@ -11,8 +11,8 @@ const Navbar = () => {
                     <input type="text" placeholder="" />
                 </div>
                 <div className="h-menu">
-                    <a href="">Материјали</a>
-                    <a href="">Профил</a>
+                    <a href="/materials">Материјали</a>
+                    <a href="/user">Профил</a>
                 </div>
             </div>
         </section>
