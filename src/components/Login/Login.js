@@ -1,33 +1,58 @@
 import React, { useState } from "react";
 import './Login.css';
+import AuthService from "../../services/AuthService";
 
 const LoginForm = () => {
     const [loginData, setLoginData] = useState({ username: "", password: "" });
-
-    const handleLoginSubmit = (event) => {
+    const { login } = AuthService();
+    const [error, setError] = useState("");
+    const [fieldErrors, setFieldErrors] = useState({});
+    const handleLoginSubmit = async (event) => {
         event.preventDefault();
-        // Validate and process login data
-        // ... Your login logic here ...
+        try {
+            const res = await login(loginData.username, loginData.password);
+        } catch (error) {
+            if (error.response?.data?.fieldErrors) {
+                const acc = {}
+                error.response?.data?.fieldErrors.forEach((current) => {
+                    console.log(current)
+                    if (acc[current.field]) {
+                        acc[current.field] = acc[current.field] + ", " + current.message;
+                    } else {
+                        acc[current.field] = current.message;
+                    }
+                });
+                setFieldErrors(acc);
+            } else {
+                setError(error?.response?.data?.message);
+            }
+        }
     };
-
+    const onChange = (event) => {
+        setLoginData((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+        setFieldErrors((prev) => ({ ...prev, [event.target.name]: undefined }));
+        setError(undefined);
+    }
     return (
         <form onSubmit={handleLoginSubmit}>
+            <div style={{ color: 'red' }}>{error}</div>
             <input
                 type="text"
                 placeholder="Корисничко име"
+                name="username"
                 value={loginData.username}
-                onChange={(event) =>
-                    setLoginData({ ...loginData, username: event.target.value })
-                }
+                onChange={onChange}
             />
+            <div style={{ color: 'red' }}>{fieldErrors.username}</div>
             <input
                 type="password"
                 placeholder="Лозинка"
+                name="password"
                 value={loginData.password}
-                onChange={(event) =>
-                    setLoginData({ ...loginData, password: event.target.value })
-                }
+                onChange={onChange}
             />
+            <div style={{ color: 'red' }}>{fieldErrors.password}</div>
+
             <div className="forgot-password">
                 <a href="#">Заборавена лозинка?</a>
             </div>
@@ -118,7 +143,7 @@ const LoginRegisterForm = () => {
             <div className="login-register-container">
                 <div className="logo-column">
                     <h3>Добредојдовте на</h3>
-                    <img className="logo-notefy-login" src="./logo.png" alt="logo" width={150}/>
+                    <img className="logo-notefy-login" src="./logo.png" alt="logo" width={150} />
                 </div>
                 <div className="vertical-line"></div>
                 <div className="login-register-column">
