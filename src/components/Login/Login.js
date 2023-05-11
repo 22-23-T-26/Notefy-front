@@ -11,6 +11,7 @@ const LoginForm = () => {
         event.preventDefault();
         try {
             const res = await login(loginData.username, loginData.password);
+            localStorage.setItem("token", res.data);
         } catch (error) {
             if (error.response?.data?.fieldErrors) {
                 const acc = {}
@@ -70,55 +71,84 @@ const RegisterForm = () => {
         password: "",
     });
 
-    const handleRegisterSubmit = (event) => {
+
+    const [error, setError] = useState("");
+    const [fieldErrors, setFieldErrors] = useState({});
+
+    const { register } = AuthService();
+
+    const onChange = (event) => {
+        setRegisterData((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+        setFieldErrors((prev) => ({ ...prev, [event.target.name]: undefined }));
+        setError(undefined);
+    }
+    const handleRegisterSubmit = async (event) => {
         event.preventDefault();
-        // Validate and process register data
-        // ... Your register logic here ...
+        try {
+            const res = await register(registerData);
+            localStorage.setItem("token", res.data);
+        } catch (error) {
+            if (error.response?.data?.fieldErrors) {
+                const acc = {}
+                error.response?.data?.fieldErrors.forEach((current) => {
+                    console.log(current)
+                    if (acc[current.field]) {
+                        acc[current.field] = acc[current.field] + ", " + current.message;
+                    } else {
+                        acc[current.field] = current.message;
+                    }
+                });
+                setFieldErrors(acc);
+            } else {
+                setError(error?.response?.data?.message);
+            }
+        }
     };
 
     return (
         <form onSubmit={handleRegisterSubmit}>
             <div className="register-form">
+                <div style={{ color: "red" }}>{error}</div>
                 <input
                     type="text"
                     placeholder="Име"
+                    name="firstName"
                     value={registerData.firstName}
-                    onChange={(event) =>
-                        setRegisterData({ ...registerData, firstName: event.target.value })
-                    }
+                    onChange={onChange}
                 />
+                <div style={{ color: "red" }}>{fieldErrors.firstName}</div>
                 <input
                     type="text"
                     placeholder="Презиме"
+                    name="lastName"
                     value={registerData.lastName}
-                    onChange={(event) =>
-                        setRegisterData({ ...registerData, lastName: event.target.value })
-                    }
+                    onChange={onChange}
                 />
+                <div style={{ color: "red" }}>{fieldErrors.lastName}</div>
                 <input
                     type="text"
                     placeholder="Корисничко име"
+                    name="username"
                     value={registerData.username}
-                    onChange={(event) =>
-                        setRegisterData({ ...registerData, username: event.target.value })
-                    }
+                    onChange={onChange}
                 />
+                <div style={{ color: "red" }}>{fieldErrors.username}</div>
                 <input
                     type="email"
                     placeholder="Емаил"
+                    name="email"
                     value={registerData.email}
-                    onChange={(event) =>
-                        setRegisterData({ ...registerData, email: event.target.value })
-                    }
+                    onChange={onChange}
                 />
+                <div style={{ color: "red" }}>{fieldErrors.email}</div>
                 <input
                     type="password"
                     placeholder="Лозинка"
+                    name="password"
                     value={registerData.password}
-                    onChange={(event) =>
-                        setRegisterData({ ...registerData, password: event.target.value })
-                    }
+                    onChange={onChange}
                 />
+                <div style={{ color: "red" }}>{fieldErrors.password}</div>
             </div>
             <div className="terms">
                 <label>
