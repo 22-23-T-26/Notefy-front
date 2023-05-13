@@ -175,7 +175,7 @@ const LoginRegisterForm = () => {
                     <h3>Добредојдовте на</h3>
                     <img className="logo-notefy-login" src="./logo.png" alt="logo" width={150} />
                 </div>
-                <div className="vertical-line"></div>
+                <div className="vertical-line"/>
                 <div className="login-register-column">
                     <div className="tabs">
                         <div

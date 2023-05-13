@@ -12,10 +12,13 @@
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    width: 1200px;
-    height: 650px;
+    width: 1100px;
+    height: 600px;
     border-radius: 8px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid red;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -51,13 +54,14 @@
 .login-register-column {
     flex: 2;
     padding: 16px 48px;
-    height: 400px;
+    border-radius: 8px;
+    background-color: lightseagreen;
+    margin: 30px;
 }
 
 .tabs {
     display: flex;
-    margin-bottom: 24px;
-    margin-top: -25px;
+    margin-bottom: 20px;
 }
 
 .tab {
@@ -72,11 +76,11 @@
 }
 
 .tab:hover {
-    background-color: #f0f0f0;
+    background-color: #58ded6;
 }
 
 .tab.active {
-    background-color: #ffffff;
+    background-color: #58ded6;
 }
 
 form {
