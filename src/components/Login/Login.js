@@ -57,7 +57,7 @@ const LoginForm = () => {
             <div className="forgot-password">
                 <a href="#">Заборавена лозинка?</a>
             </div>
-            <button type="submit">Најави се</button>
+            <button type="submit" className="btn btn-dark">Најави се</button>
         </form>
     );
 };
@@ -69,6 +69,7 @@ const RegisterForm = () => {
         username: "",
         email: "",
         password: "",
+        telephone: "",
     });
 
 
@@ -149,6 +150,14 @@ const RegisterForm = () => {
                     onChange={onChange}
                 />
                 <div style={{ color: "red" }}>{fieldErrors.password}</div>
+                <input
+                    type="text"
+                    placeholder="Телефонски број"
+                    name="telephone"
+                    value={registerData.telephone}
+                    onChange={onChange}
+                />
+                <div style={{ color: "red" }}>{fieldErrors.telephone}</div>
             </div>
             <div className="terms">
                 <label>
@@ -156,7 +165,7 @@ const RegisterForm = () => {
                     Се согласувам со условите за користење на Notefy
                 </label>
             </div>
-            <button type="submit">Регистрирај се</button>
+            <button type="submit" className="btn btn-dark">Регистрирај се</button>
         </form>
     );
 };

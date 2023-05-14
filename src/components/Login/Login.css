@@ -53,7 +53,7 @@
 .login-register-column {
     flex: 2;
     padding: 16px 48px;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: lightseagreen;
     margin: 30px;
 }
