@@ -1,98 +1,66 @@
-/* Container for the entire Navbar */
+
 .h-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
     height: 80px;
+    background-color: #e3e3e3;
 }
 
-/* Container for the logo, search bar, and links */
 .h-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 20px;
 }
 
-/* Logo */
 .logo-notefy {
-    margin-right: auto;
+    margin-right: 20px;
 }
 
-/* Search bar */
 .h-search {
+    padding-top: 25px;
+    position: relative;
+    flex: 1;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 0 20px;
-    background-color: #fff;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    flex-grow: 1; /* Add this property to make the search bar grow and fill the available space */
 }
 
-
-
-.h-search input {
-    flex-grow: 1;
-    padding: 5px; /* reduce the padding */
+.h-search input[type="text"] {
+    width: 100%;
+    padding: 8px 45px 8px 8px;
     border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
     font-size: 16px;
+    background-color: #f2f2f2;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.search-button:hover {
     background-color: transparent;
-    outline: none;
-}
-
-
-.h-search input::placeholder {
-    color: #999;
-}
-
-.h-search .search-icon {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.h-search .search-icon:hover {
-    background-color: #666;
-}
-
-
-.h-search-button {
-    padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.h-search-button:hover {
-    background-color: #666;
 }
 
 .h-menu {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .h-menu a {
-    margin-left: 10px;
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.h-menu a:hover {
-    color: #666;
+    margin-left: 20px;
+    margin-right: 20px;
 }

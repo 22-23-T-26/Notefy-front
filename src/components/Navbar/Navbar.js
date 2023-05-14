@@ -1,22 +1,38 @@
 import React from "react";
-import './Navbar.css';
+import "./Navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
     return (
         <section className="h-wrapper">
             <div className="h-container">
-                <img className="logo-notefy" src="./logo.png" alt="logo" width={100}/>
+                <a href="/">
+                    <img className="logo-notefy" src="./logo2.png" alt="logo" width={100} />
+                </a>
                 <div className="h-search">
-                    {/* Add your search bar component here */}
-                    <input type="text" placeholder="" />
+                    <input type="text" placeholder="" style={{background: "#ffffff"}}/>
+                    <button className="search-button">
+                        <FontAwesomeIcon icon={faSearch} style={{color: "#84A59D"}}/>
+                    </button>
                 </div>
                 <div className="h-menu">
-                    <a href="/materials">Материјали</a>
-                    <a href="/user">Профил</a>
+                    <a href="/forum" style={{ color: "#84A59D", textDecoration: "none" }}>
+                        Форум
+                    </a>
+                    <a href="/materials" style={{ color: "#84A59D", textDecoration: "none" }}>
+                        Материјали
+                    </a>
+                    <a href="/user">
+                        <FontAwesomeIcon
+                            icon={faUserCircle}
+                            style={{ fontSize: "24px", color: "#84A59D" }}
+                        />
+                    </a>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Navbar;
