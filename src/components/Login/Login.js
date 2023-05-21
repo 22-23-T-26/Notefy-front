@@ -78,10 +78,21 @@ const RegisterForm = () => {
     const { register } = AuthService();
 
     const onChange = (event) => {
-        setRegisterData((prev) => ({ ...prev, [event.target.name]: event.target.value }));
-        setFieldErrors((prev) => ({ ...prev, [event.target.name]: undefined }));
+        const { name, value } = event.target;
+
+        if (name === "email" && value.trim() !== "") {
+            if (!/\S+@\S+\.\S+/.test(value)) {
+                setFieldErrors((prev) => ({ ...prev, [name]: "Invalid email address." }));
+            } else {
+                setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
+            }
+        }
+
+        setRegisterData((prev) => ({ ...prev, [name]: value }));
+        setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
         setError(undefined);
-    }
+
+    };
     const handleRegisterSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -110,14 +121,17 @@ const RegisterForm = () => {
             <div className="register-form">
                 <div style={{ color: "red" }}>{error}</div>
                 <input
+                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
                     type="text"
                     placeholder="Име"
                     name="firstName"
                     value={registerData.firstName}
                     onChange={onChange}
+
                 />
                 <div style={{ color: "red" }}>{fieldErrors.firstName}</div>
                 <input
+                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
                     type="text"
                     placeholder="Презиме"
                     name="lastName"
@@ -126,6 +140,7 @@ const RegisterForm = () => {
                 />
                 <div style={{ color: "red" }}>{fieldErrors.lastName}</div>
                 <input
+                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
                     type="text"
                     placeholder="Корисничко име"
                     name="username"
@@ -134,6 +149,7 @@ const RegisterForm = () => {
                 />
                 <div style={{ color: "red" }}>{fieldErrors.username}</div>
                 <input
+                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
                     type="email"
                     placeholder="Емаил"
                     name="email"
@@ -142,6 +158,7 @@ const RegisterForm = () => {
                 />
                 <div style={{ color: "red" }}>{fieldErrors.email}</div>
                 <input
+                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
                     type="password"
                     placeholder="Лозинка"
                     name="password"
