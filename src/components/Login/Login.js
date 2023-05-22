@@ -54,8 +54,8 @@ const LoginForm = () => {
             />
             <div style={{ color: 'red' }}>{fieldErrors.password}</div>
 
-            <div className="forgot-password" style={{color:"#DC6628"}}>
-                <a href="#" style={{color:"#DC6628"}}>Заборавена лозинка?</a>
+            <div className="forgot-password" style={{ color: "#DC6628" }}>
+                <a href="#" style={{ color: "#DC6628" }}>Заборавена лозинка?</a>
             </div>
             <button type="submit" className="btn btn-dark">НАЈАВИ СЕ</button>
         </form>
@@ -123,29 +123,33 @@ const RegisterForm = () => {
                 <div style={{ color: "red" }}>{error}</div>
 
                 <div className="input-row">
-                  <input
-                      style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
-                      type="text"
-                      placeholder="Име"
-                      name="firstName"
-                      value={registerData.firstName}
-                      onChange={onChange}
+                    <div>
+                        <input
+                            style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
+                            type="text"
+                            placeholder="Име"
+                            name="firstName"
+                            value={registerData.firstName}
+                            onChange={onChange}
 
-                  />
-                  <div style={{ color: "red" }}>{fieldErrors.firstName}</div>
-                  <input
-                      style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
-                      type="text"
-                      placeholder="Презиме"
-                      name="lastName"
-                      value={registerData.lastName}
-                      onChange={onChange}
-                  />
+                        />
+                        <div style={{ color: "red" }}>{fieldErrors.firstName}</div>
+                    </div>
+                    <div>
+                        <input
+                            style={fieldErrors.lastName ? { border: "1px solid red" } : {}}
+                            type="text"
+                            placeholder="Презиме"
+                            name="lastName"
+                            value={registerData.lastName}
+                            onChange={onChange}
+                        />
 
-                  <div style={{ color: "red" }}>{fieldErrors.lastName}</div>
+                        <div style={{ color: "red" }}>{fieldErrors.lastName}</div>
+                    </div>
                 </div>
                 <input
-                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
+                    style={fieldErrors.username ? { border: "1px solid red" } : {}}
                     type="text"
                     placeholder="Корисничко име"
                     name="username"
@@ -154,7 +158,7 @@ const RegisterForm = () => {
                 />
                 <div style={{ color: "red" }}>{fieldErrors.username}</div>
                 <input
-                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
+                    style={fieldErrors.email ? { border: "1px solid red" } : {}}
                     type="email"
                     placeholder="Е-маил"
                     name="email"
@@ -163,7 +167,7 @@ const RegisterForm = () => {
                 />
                 <div style={{ color: "red" }}>{fieldErrors.email}</div>
                 <input
-                    style={fieldErrors.firstName ? { border: "1px solid red" } : {}}
+                    style={fieldErrors.password ? { border: "1px solid red" } : {}}
                     type="password"
                     placeholder="Лозинка"
                     name="password"
@@ -181,7 +185,7 @@ const RegisterForm = () => {
                 <div style={{ color: "red" }}>{fieldErrors.telephone}</div>
             </div>
             <div className="terms">
-                <label style={{color:"#DC6628"}}>
+                <label style={{ color: "#DC6628" }}>
                     <input type="checkbox" required />
                     Се согласувам со условите за користење на Notefy
                 </label>
@@ -209,7 +213,7 @@ const LoginRegisterForm = () => {
                         alt="logo"
                         width={250} />
                 </div>
-                <div className="vertical-line"/>
+                <div className="vertical-line" />
                 <div className="login-register-column">
                     <div className="tabs">
                         <div
