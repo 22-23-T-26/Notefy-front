@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
 import Forum from './components/Forum/Forum';
+import Disucssion from './components/Forum/Disucssion';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path='/user' element={<User />} />
                 <Route path='/materials' element={<MaterialsPage />} />
                 <Route path='/forum' element={<Forum />} />
+                <Route path='/forum/:discussionId' element={<Disucssion />} />
             </Routes>
         </div>
     );
