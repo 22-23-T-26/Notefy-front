@@ -14,7 +14,7 @@ const ForumService = (page) => {
     }
 
     const addComment = async (discussionId, parentId, comment) => {
-        return await axiosInstance.post(`/api/discussions/comment?discussionId=${discussionId}${parentId ? `&parenCommentId${parentId}` : ""}`, {
+        return await axiosInstance.post(`/api/discussions/comment?discussionId=${discussionId}${parentId ? `&parenCommentId=${parentId}` : ""}`, {
             content: comment
         });
     }
