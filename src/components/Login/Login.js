@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Login.css';
 import AuthService from "../../services/AuthService";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
     const [loginData, setLoginData] = useState({ username: "", password: "" });
     const { login } = AuthService();
     const [error, setError] = useState("");
     const [fieldErrors, setFieldErrors] = useState({});
+
+    const navigate = useNavigate();
+
     const handleLoginSubmit = async (event) => {
         event.preventDefault();
         try {
             const res = await login(loginData.username, loginData.password);
             localStorage.setItem("token", res);
+            navigate("/forum");
         } catch (error) {
             if (error.response?.data?.fieldErrors) {
                 const acc = {}
@@ -78,6 +83,8 @@ const RegisterForm = () => {
 
     const { register } = AuthService();
 
+    const navigate = useNavigate();
+
     const onChange = (event) => {
         const { name, value } = event.target;
 
@@ -99,6 +106,7 @@ const RegisterForm = () => {
         try {
             const res = await register(registerData);
             localStorage.setItem("token", res);
+            navigate("/forum");
         } catch (error) {
             if (error.response?.data?.fieldErrors) {
                 const acc = {}
@@ -198,6 +206,13 @@ const RegisterForm = () => {
 const LoginRegisterForm = () => {
     const [activeTab, setActiveTab] = useState("login");
 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            navigate("/forum");
+        }
+    }, []);
     const handleTabChange = (tab) => {
         setActiveTab(tab);
     };
