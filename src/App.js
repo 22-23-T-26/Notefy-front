@@ -8,26 +8,21 @@ import User from "./components/User/User";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
+import Forum from './components/Forum/Forum';
+import Disucssion from './components/Forum/Disucssion';
 
 function App() {
-    const { login } = AuthService();
-
-    useEffect(() => {
-        const test = async () => {
-            const response = await login('admin', 'admin');
-            console.log(response);
-        }
-        test();
-    })
 
     return (
         <div className="App">
             <Navbar />
             <Routes>
-                <Route path='/' element={<LoginRegisterForm/>}/>
-                <Route path='/auth' element={<LoginRegisterForm/>}/>
-                <Route path='/user' element={<User/>}/>
-                <Route path='/materials' element={<MaterialsPage/>}/>
+                <Route path='/' element={<LoginRegisterForm />} />
+                <Route path='/auth' element={<LoginRegisterForm />} />
+                <Route path='/user' element={<User />} />
+                <Route path='/materials' element={<MaterialsPage />} />
+                <Route path='/forum' element={<Forum />} />
+                <Route path='/forum/:discussionId' element={<Disucssion />} />
             </Routes>
         </div>
     );
