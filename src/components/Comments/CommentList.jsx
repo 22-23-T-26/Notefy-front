@@ -12,7 +12,7 @@ const CommentList = ({ comments, addReply }) => {
     }, [comments]);
 
     const handleAddReply = async () => {
-        const res = await addReply(null, replyText);
+        const res = await addReply(null, replyText, internalComments.length + 1);
         setInternalComments([res, ...internalComments]);
         setReplyText('');
         setShowReplyInput(false);

@@ -19,11 +19,23 @@ const ForumService = (page) => {
         });
     }
 
+    const addLike = async (discussionId) => {
+        return await axiosInstance.post(`/api/discussions/likes/add?discussionId=${discussionId}`);
+    }
+
+
+    const removeLike = async (discussionId) => {
+        return await axiosInstance.post(`/api/discussions/likes/remove?discussionId=${discussionId}`);
+    }
+
+
     return {
         getDiscussions,
         createDiscussion,
         getDiscussionById,
-        addComment
+        addComment,
+        addLike,
+        removeLike
     }
 
 }
