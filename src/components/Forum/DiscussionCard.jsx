@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { FaHeart, FaComment } from 'react-icons/fa';
 
+
 import dayjs from 'dayjs';
-import 'dayjs/locale/mk'
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Link } from "react-router-dom";
 import ForumService from "../../services/ForumService";
@@ -11,12 +14,16 @@ import ForumService from "../../services/ForumService";
 // Extend dayjs with the relativeTime plugin
 dayjs.extend(relativeTime);
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 function formatTime(time) {
-    const now = dayjs();
-    const creationMoment = dayjs(time);
+    const now = dayjs().tz('Europe/Skopje');
+    const creationMoment = dayjs(time).tz('Europe/Skopje');
 
     return creationMoment.locale('mk').from(now);
 }
+
 
 function formatLikes(likes) {
     if (likes >= 1000000) {
