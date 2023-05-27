@@ -4,9 +4,13 @@ import MaterialsFilter from './MaterialsFilter';
 import NewMaterialModal from '../Modals/NewMaterial';
 import './Materials.css';
 import {HiDocumentAdd} from 'react-icons/hi'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import MaterialsService from '../../services/MaterialsService';
+
 const MaterialsPage = () => {
     const [showModal, setShowModal] = useState(false);
+    const [data, setData] = useState()
+    const { GetAll } = MaterialsService();
 
     const openModal = () => {
       setShowModal(true);
@@ -16,6 +20,13 @@ const MaterialsPage = () => {
       setShowModal(false);
     };
 
+    useEffect(()=>{
+        GetAll()
+        .then(pod => {
+            setData(pod.data)
+        })
+    },[setData])
+
     return (
         <div className='d-flex flex-row'>
             <div className='left-wrapper'>
@@ -24,20 +35,9 @@ const MaterialsPage = () => {
                     <HiDocumentAdd className='text-dark' size={30} onClick={openModal}/>
                 </div>
                 <div className='d-flex flex-column align-items-center justify-content-center gap-3'>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
+                {data.map((item, index) => (
+                    <MaterialsCard key={index} data={item} />
+                ))}
                 </div>
             </div>
             <div className='right-wrapper'>
