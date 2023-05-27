@@ -9,15 +9,15 @@ function User() {
     return (
         <div className='user'>
             <Container>
-            <UserDetails />
-            <Row>
-            <Col md={3}>
-            <UserContact />
-            </Col>
-            <Col md={8}>
-            <UserMaterials />
-            </Col>
-            </Row>
+                <UserDetails />
+                <Row>
+                    <Col md={3}>
+                        <UserContact />
+                    </Col>
+                    <Col md={8}>
+                        <UserMaterials />
+                    </Col>
+                </Row>
             </Container>
         </div>
     )

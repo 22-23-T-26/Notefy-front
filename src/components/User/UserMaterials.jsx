@@ -7,14 +7,14 @@ function UserMaterials() {
 
     return (
         <div className='mt-5'>
-              <div className='d-flex'>
-              <Col md={4}>
-                    <h4 className='text-left'>Постирани материјали</h4>
+            <div className='d-flex'>
+                <Col md={6}>
+                    <h4 className='text-left' style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Постирани материјали</h4>
                 </Col>
-                <Col md={8} className='place-self-center'>
+                <Col md={6} className='place-self-center'>
                     <div className='border border-2 border-secondary mx-3'></div>
                 </Col>
-              </div>    
+            </div>
             <UserCard />
             <UserCard />
             <UserCard />
