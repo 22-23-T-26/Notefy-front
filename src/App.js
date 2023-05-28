@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -8,6 +7,7 @@ import User from "./components/User/User";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
+import Messages from "./components/Messages/Messages";
 
 function App() {
     const { login } = AuthService();
@@ -28,6 +28,7 @@ function App() {
                 <Route path='/auth' element={<LoginRegisterForm/>}/>
                 <Route path='/user' element={<User/>}/>
                 <Route path='/materials' element={<MaterialsPage/>}/>
+                <Route path='/messages' element={<Messages/>}/>
             </Routes>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 function UserContact() {
 
@@ -12,7 +12,7 @@ function UserContact() {
                 <Col md={8} className='place-self-center'>
                     <div className='border border-2 border-secondary mx-3'></div>
                 </Col>
-              </div>   
+              </div>
             <div className='d-flex flex-column text-left mt-3'>
                 <span className='text-muted'>
                     E-mail
