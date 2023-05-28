@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Image } from 'react-bootstrap';
-import { RiStarSLine } from 'react-icons/ri';
+import { RiStarSFill, RiStarSLine } from 'react-icons/ri';
 import { TiMessage } from 'react-icons/ti'
 
 function UserDetails() {
@@ -15,19 +15,24 @@ function UserDetails() {
                 <p className='text-muted text-left mb-0 fw-500' style={{ fontSize: "20px" }}>@biljana.trajkovska</p>
                 <p className='text-muted'>студент</p>
                 <div className='d-flex align-items-center'>
+                    <RiStarSFill className='text-dark' size={40} style={{fill:"orange"}} />
+                    <RiStarSFill className='text-dark' size={40} style={{fill:"orange"}}/>
+                    <RiStarSFill className='text-dark' size={40} style={{fill:"orange"}}/>
                     <RiStarSLine className='text-dark' size={40} />
                     <RiStarSLine className='text-dark' size={40} />
-                    <RiStarSLine className='text-dark' size={40} />
-                    <RiStarSLine className='text-dark' size={40} />
-                    <RiStarSLine className='text-dark' size={40} />
-                    <span className='fw-bold mx-2' style={{ fontSize: "25px" }}>0.0</span>
+                    <span className='fw-bold mx-2' style={{ fontSize: "25px", color:"orange" }}>3.0</span>
                 </div>
                 <span className='text-muted mx-1'>рејтинг</span>
             </Col>
-            <Col md={{ span: 2, offset:2 }}>
-                <Button className='text-dark border-secondary shadow-bottom' style={{ backgroundColor: "#EEEEEE", padding: "5px 60px" }}>
+            <Col md={{ span: 2, offset: 2 }}>
+                <a href="/messages">
+                <Button
+                    className='text-white border-secondary shadow-bottom'
+                    style={{ backgroundColor: '#DC6628', padding: '5px 60px' }}
+                >
                     <TiMessage size={30} /> Порака
                 </Button>
+                </a>
             </Col>
         </Card.Body>
     )

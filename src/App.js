@@ -7,28 +7,29 @@ import User from "./components/User/User";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
+
 import Messages from "./components/Messages/Messages";
 
-function App() {
-    const { login } = AuthService();
+import Forum from './components/Forum/Forum';
+import Disucssion from './components/Forum/Disucssion';
+import MaterialPage from "./components/Materials/MaterialPage";
 
-    useEffect(() => {
-        const test = async () => {
-            const response = await login('admin', 'admin');
-            console.log(response);
-        }
-        test();
-    })
+
+function App() {
 
     return (
         <div className="App">
             <Navbar />
             <Routes>
-                <Route path='/' element={<LoginRegisterForm/>}/>
-                <Route path='/auth' element={<LoginRegisterForm/>}/>
-                <Route path='/user' element={<User/>}/>
+                <Route path='/' element={<LoginRegisterForm />} />
+                <Route path='/auth' element={<LoginRegisterForm />} />
+                <Route path='/user' element={<User />} />
+                <Route path='/materials' element={<MaterialsPage />} />
+                <Route path='/forum' element={<Forum />} />
+                <Route path='/forum/:discussionId' element={<Disucssion />} />
                 <Route path='/materials' element={<MaterialsPage/>}/>
                 <Route path='/messages' element={<Messages/>}/>
+                <Route path="/material/:id" element={<MaterialPage/>} />            
             </Routes>
         </div>
     );
