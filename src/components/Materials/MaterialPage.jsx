@@ -2,8 +2,12 @@ import React from "react";
 import { Card, Button, Col, Row } from "react-bootstrap";
 import {BsStar, BsStarFill} from "react-icons/bs";
 import {FaArrowLeft} from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
-function MaterialPage() {
+function MaterialPage(props) {
+    const location = useLocation();
+    const materialData = location.state && location.state.materialData;
+
     return (
         <div style={{backgroundColor:"#F0F0F0", paddingRight:"50px", minHeight: "90vh"}}>
                 <Row>
@@ -20,10 +24,10 @@ function MaterialPage() {
                         />
                     </Col>
                     <Col md={9} style={{paddingTop:"30px"}}>
-                        <h1 style={{textAlign:"left"}}>Калкулус</h1>
+                        <h1 style={{textAlign:"left"}}>{materialData.title}</h1>
                         <div className="text-left">
                             <span className="text-left" style={{textAlign:"left"}}>од </span>
-                            <a className="text-left" style={{textAlign:"left"}} href="/user" style={{color:"#DC6628"}}>@biljana.trajkovska</a>
+                            <a className="text-left" style={{textAlign:"left", color:"#DC6628"}} href="/user">@biljana.trajkovska</a>
 
                         </div>
 
@@ -37,19 +41,10 @@ function MaterialPage() {
                         </div>
                         <p className="text-left">оцена</p>
                         <div className="text-left">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                                eget justo in velit lacinia malesuada. Fusce nec lacus ac odio
-                                pellentesque cursus. Sed pellentesque nisl non neque pellentesque,
-                                at condimentum enim lobortis. Phasellus gravida eu odio non luctus.
-                                Curabitur nec augue nec arcu eleifend malesuada. Curabitur a lectus
-                                eu odio malesuada ultrices. Mauris ultricies tortor odio, sed rutrum
-                                dui finibus sed. Donec id dolor vel dui aliquam tincidunt. Etiam
-                                volutpat nibh vel quam consectetur, non viverra velit convallis.
-                                Praesent consectetur massa at nulla sollicitudin, at fringilla risus
-                                    dapibus.</p>
+                            <p>{materialData.description}</p>
                         </div>
                         <div className="text-left">
-                            <Button variant="secondary" className="w-25">
+                            <Button variant="secondary" className="w-25" onClick={() => window.open(materialData.url, '_blank')}>
                                 Преземи
                             </Button>
                         </div>

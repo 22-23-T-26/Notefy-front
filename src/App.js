@@ -8,7 +8,7 @@ import User from "./components/User/User";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
-import MaterialPage from "./components/Post/MaterialPage";
+import MaterialPage from "./components/Materials/MaterialPage";
 
 function App() {
     const { login } = AuthService();
@@ -29,7 +29,8 @@ function App() {
                 <Route path='/auth' element={<LoginRegisterForm/>}/>
                 <Route path='/user' element={<User/>}/>
                 <Route path='/materials' element={<MaterialsPage/>}/>
-                <Route path="/material1" element={<MaterialPage/>} />            </Routes>
+                <Route path="/material/:id" element={<MaterialPage/>} />            
+            </Routes>
         </div>
     );
 
