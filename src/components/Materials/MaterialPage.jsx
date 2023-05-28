@@ -27,7 +27,7 @@ function MaterialPage(props) {
                         <h1 style={{textAlign:"left"}}>{materialData.title}</h1>
                         <div className="text-left">
                             <span className="text-left" style={{textAlign:"left"}}>од </span>
-                            <a className="text-left" style={{textAlign:"left", color:"#DC6628"}} href="/user">@biljana.trajkovska</a>
+                            <a className="text-left" style={{textAlign:"left", color:"#DC6628"}} href="/user">@{materialData.createdBy.username}</a>
 
                         </div>
 
