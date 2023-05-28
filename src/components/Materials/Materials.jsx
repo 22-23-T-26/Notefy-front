@@ -16,17 +16,26 @@ const MaterialsPage = () => {
     };
   
     const closeModal = () => {
-      setShowModal(false);
-    };
-
-    useEffect(()=>{
+        setShowModal(false);
+        fetchData(); // Call the function to fetch data after closing the modal
+      };
+    
+    const fetchData = () => {
         GetAll()
         .then(pod => {
-            console.log(pod)
-            if(pod && pod.length>0)
-                setData(pod)
+        console.log(pod);
+        if (pod && pod.length > 0) {
+            setData(pod);
+        }
         })
-    },[])
+        .catch(error => {
+        console.log(error);
+        });
+    };
+
+    useEffect(() => {
+    fetchData(); // Initial data fetch
+    }, []);
 
     return (
         <div className='d-flex flex-row'>
