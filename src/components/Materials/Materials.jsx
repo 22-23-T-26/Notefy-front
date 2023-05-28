@@ -47,6 +47,7 @@ const MaterialsPage = () => {
                 <div className='d-flex flex-column align-items-center justify-content-center gap-3'>
                 {data?.length > 0 ? (
                     data.map((item, index) => (
+
                     <MaterialsCard key={index} data={item} />
                     ))
                 ) : (

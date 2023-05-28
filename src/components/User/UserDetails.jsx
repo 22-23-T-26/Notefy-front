@@ -24,10 +24,15 @@ function UserDetails() {
                 </div>
                 <span className='text-muted mx-1'>рејтинг</span>
             </Col>
-            <Col md={{ span: 2, offset:2 }}>
-                <Button className='text-dark border-secondary shadow-bottom' style={{ backgroundColor: "#EEEEEE", padding: "5px 60px" }}>
+            <Col md={{ span: 2, offset: 2 }}>
+                <a href="/messages">
+                <Button
+                    className='text-white border-secondary shadow-bottom'
+                    style={{ backgroundColor: '#DC6628', padding: '5px 60px' }}
+                >
                     <TiMessage size={30} /> Порака
                 </Button>
+                </a>
             </Col>
         </Card.Body>
     )

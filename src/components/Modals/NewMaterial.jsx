@@ -35,6 +35,7 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
     formValues.paymentFlag = isPaid;
     formValues.price = isPaid ? parseInt(price) : 0;
     formValues.category = selectedCategory
+    formValues.subject=1
 
     try {
       await CreateMaterial(formValues);
@@ -72,7 +73,7 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
               value={selectedCategory}
               style={{ background: '#F4F4F4', borderRadius: '12px', boxShadow: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)' }}
             >
-              <option value=''>Select Category</option>
+              <option value=''>Изберете категорија</option>
               <option value='BOOK'>BOOK</option>
               <option value='SCRIPT'>SCRIPT</option>
               <option value='EXAM'>EXAM</option>

@@ -10,6 +10,7 @@ import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
 import Forum from './components/Forum/Forum';
 import Disucssion from './components/Forum/Disucssion';
+import MaterialPage from "./components/Materials/MaterialPage";
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
                 <Route path='/materials' element={<MaterialsPage />} />
                 <Route path='/forum' element={<Forum />} />
                 <Route path='/forum/:discussionId' element={<Disucssion />} />
+                <Route path='/materials' element={<MaterialsPage/>}/>
+                <Route path="/material/:id" element={<MaterialPage/>} />            
             </Routes>
         </div>
     );
