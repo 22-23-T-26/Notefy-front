@@ -1,7 +1,6 @@
 **Prerequisites**
 
 - A computer running Windows, macOS, or Linux
-- An Android or iOS device
 
 **Step 1: Install Node.js and Chocolatey**
 
