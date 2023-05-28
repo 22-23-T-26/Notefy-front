@@ -4,17 +4,38 @@ import MaterialsFilter from './MaterialsFilter';
 import NewMaterialModal from '../Modals/NewMaterial';
 import './Materials.css';
 import {HiDocumentAdd} from 'react-icons/hi'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import MaterialsService from '../../services/MaterialsService';
+
 const MaterialsPage = () => {
     const [showModal, setShowModal] = useState(false);
-
+    const [data, setData] = useState([])
+    const {GetAll} = MaterialsService()
     const openModal = () => {
       setShowModal(true);
     };
   
     const closeModal = () => {
-      setShowModal(false);
+        setShowModal(false);
+        fetchData(); // Call the function to fetch data after closing the modal
+      };
+    
+    const fetchData = () => {
+        GetAll()
+        .then(pod => {
+        console.log(pod);
+        if (pod && pod.length > 0) {
+            setData(pod);
+        }
+        })
+        .catch(error => {
+        console.log(error);
+        });
     };
+
+    useEffect(() => {
+    fetchData(); // Initial data fetch
+    }, []);
 
     return (
         <div className='d-flex flex-row'>
@@ -24,20 +45,13 @@ const MaterialsPage = () => {
                     <HiDocumentAdd className='text-dark' size={30} onClick={openModal}/>
                 </div>
                 <div className='d-flex flex-column align-items-center justify-content-center gap-3'>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
-                    <MaterialsCard/>
+                {data?.length > 0 ? (
+                    data.map((item, index) => (
+                    <MaterialsCard key={index} data={item} />
+                    ))
+                ) : (
+                    <p>No data available</p>
+                )}
                 </div>
             </div>
             <div className='right-wrapper'>
