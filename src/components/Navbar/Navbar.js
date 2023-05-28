@@ -8,7 +8,7 @@ const Navbar = () => {
         <section className="h-wrapper">
             <div className="h-container">
                 <a href="/">
-                    <img className="logo-notefy" src="./logo2.png" alt="logo" width={100} />
+                    <img className="logo-notefy" src="./Logo.svg" alt="logo" />
                 </a>
                 <div className="h-search">
                     <input type="text" placeholder="" style={{ background: "#ffffff" }} />

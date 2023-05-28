@@ -224,9 +224,9 @@ const LoginRegisterForm = () => {
                     <h3>Добредојдовте на</h3>
                     <img
                         className="logo-notefy-login"
-                        src="./logo2.png"
+                        src="./Logo.svg"
                         alt="logo"
-                        width={250} />
+                    />
                 </div>
                 <div className="vertical-line" />
                 <div className="login-register-column">
