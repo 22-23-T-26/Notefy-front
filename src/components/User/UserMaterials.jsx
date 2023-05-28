@@ -19,7 +19,9 @@ function UserMaterials() {
             <UserCard />
             <UserCard />
             <div className='float-right'>
-                <span className='text-decoration-underline' style={{cursor: "pointer"}}>Види повеќе...</span>
+                <a href="/materials">
+                    <span className='text-decoration-underline' style={{ cursor: "pointer", paddingBottom: "30px", color: "black" }}>Види повеќе...</span>
+                </a>
             </div>
         </div>
     )

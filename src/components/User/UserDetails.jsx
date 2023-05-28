@@ -4,6 +4,7 @@ import { TiMessage } from 'react-icons/ti';
 import "./RatingStars.css";
 import { BsStarFill } from 'react-icons/bs';
 import { BsStar } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 function UserDetails() {
 
@@ -34,14 +35,16 @@ function UserDetails() {
                 <span className='text-muted mx-1'>рејтинг</span>
             </Col>
             <Col md={{ span: 2, offset: 2 }}>
-                <Button
-                    className='text-white border-secondary shadow-bottom'
-                    style={{ backgroundColor: '#DC6628', padding: '5px 60px' }}
-                >
-                    <TiMessage size={30} /> Порака
-                </Button>
-            </Col>
-        </Card.Body>
+                <Link to="/messages">
+                    <Button
+                        className='text-white border-secondary shadow-bottom'
+                        style={{ backgroundColor: '#DC6628', padding: '5px 60px' }}
+                    >
+                        <TiMessage size={30} /> Порака
+                    </Button>
+                </Link>
+            </Col >
+        </Card.Body >
     );
 }
 

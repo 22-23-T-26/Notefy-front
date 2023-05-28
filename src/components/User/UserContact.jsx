@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 function UserContact() {
 
@@ -17,13 +17,13 @@ function UserContact() {
                 <span className='text-muted'>
                     E-mail
                 </span>
-                <span className='fw-500' style={{color: '#DC6628'}}>biljana.trajkovska@students.com</span>
+                <span className='fw-500' style={{ color: '#DC6628' }}>biljana.trajkovska@students.com</span>
             </div>
             <div className='d-flex flex-column text-left mt-3'>
                 <span className='text-muted'>
                     Телефон
                 </span>
-                <span className='fw-500' style={{color: '#DC6628'}}>+38976666333</span>
+                <span className='fw-500' style={{ color: '#DC6628' }}>+38976666333</span>
             </div>
         </div>
     )
