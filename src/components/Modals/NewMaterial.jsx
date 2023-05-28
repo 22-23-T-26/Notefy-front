@@ -35,6 +35,7 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
     formValues.paymentFlag = isPaid;
     formValues.price = isPaid ? parseInt(price) : 0;
     formValues.category = selectedCategory
+    formValues.subject=1
 
     try {
       await CreateMaterial(formValues);
