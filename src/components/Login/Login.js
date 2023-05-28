@@ -228,7 +228,7 @@ const LoginRegisterForm = () => {
                         alt="logo"
                     />
                 </div>
-                <div className="vertical-line" />
+                <div className="vertical-line"></div>
                 <div className="login-register-column">
                     <div className="tabs">
                         <div
