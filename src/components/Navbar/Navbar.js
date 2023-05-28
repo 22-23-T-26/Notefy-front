@@ -23,7 +23,7 @@ const Navbar = () => {
                     <a href="/materials" style={{ color: "#84A59D", textDecoration: "none" }}>
                         Материјали
                     </a>
-                    <a href="" style={{ color: "#84A59D", textDecoration: "none" }}>
+                    <a href="/messages" style={{ color: "#84A59D", textDecoration: "none" }}>
                         Пораки
                     </a>
                     <a href="/user">

@@ -15,11 +15,19 @@ function UserMaterials() {
                     <div className='border border-2 border-secondary mx-3'></div>
                 </Col>
             </div>
-            <UserCard />
-            <UserCard />
-            <UserCard />
+            <a href="/material1" style={{color:"black", textDecoration:"none"}}>
+                <UserCard />
+            </a>
+            <a href="/material2" style={{color:"black", textDecoration:"none"}}>
+                <UserCard />
+            </a>
+            <a href="/material3" style={{color:"black", textDecoration:"none"}}>
+                <UserCard />
+            </a>
             <div className='float-right'>
-                <span className='text-decoration-underline' style={{cursor: "pointer"}}>Види повеќе...</span>
+                <a href="/materials">
+                    <span className='text-decoration-underline' style={{cursor: "pointer", paddingBottom:"30px", color:"black"}}>Види повеќе...</span>
+                </a>
             </div>
         </div>
     )
