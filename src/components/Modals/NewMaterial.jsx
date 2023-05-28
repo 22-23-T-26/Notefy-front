@@ -64,8 +64,8 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
           <Form.Group className="mb-2" controlId="subject">
             <Form.Label>Предмет</Form.Label>
             <Form.Select
-              onChange={handleChangeCategory}
-              value={selectedCategory}
+              onChange={handleChange}
+              value={formValues?.subject}
               style={{ background: '#F4F4F4', borderRadius: '12px', boxShadow: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)' }}
             >
               <option value='1' selected>General</option>
