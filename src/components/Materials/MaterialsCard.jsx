@@ -14,7 +14,7 @@ const MaterialsCard = ({data}) => {
                 </div>
             </div>
             <span style={{ marginRight: '30px'}}>
-                пред {data.dateOfCreation}
+                на {data.dateOfCreation.split("T")[0]}
             </span>
         </Card>
     )

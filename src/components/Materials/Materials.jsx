@@ -22,8 +22,9 @@ const MaterialsPage = () => {
     useEffect(()=>{
         GetAll()
         .then(pod => {
+            console.log(pod)
             if(pod && pod.length>0)
-                setData(pod.data)
+                setData(pod)
         })
     },[])
 
@@ -35,9 +36,13 @@ const MaterialsPage = () => {
                     <HiDocumentAdd className='text-dark' size={30} onClick={openModal}/>
                 </div>
                 <div className='d-flex flex-column align-items-center justify-content-center gap-3'>
-                {data.map((item, index) => (
+                {data?.length > 0 ? (
+                    data.map((item, index) => (
                     <MaterialsCard key={index} data={item} />
-                ))}
+                    ))
+                ) : (
+                    <p>No data available</p>
+                )}
                 </div>
             </div>
             <div className='right-wrapper'>
