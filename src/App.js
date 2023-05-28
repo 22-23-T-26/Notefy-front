@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -8,9 +7,13 @@ import User from "./components/User/User";
 import Navbar from "./components/Navbar/Navbar";
 import LoginRegisterForm from "./components/Login/Login";
 import MaterialsPage from './components/Materials/Materials';
+
+import Messages from "./components/Messages/Messages";
+
 import Forum from './components/Forum/Forum';
 import Disucssion from './components/Forum/Disucssion';
 import MaterialPage from "./components/Materials/MaterialPage";
+
 
 function App() {
 
@@ -25,6 +28,7 @@ function App() {
                 <Route path='/forum' element={<Forum />} />
                 <Route path='/forum/:discussionId' element={<Disucssion />} />
                 <Route path='/materials' element={<MaterialsPage/>}/>
+                <Route path='/messages' element={<Messages/>}/>
                 <Route path="/material/:id" element={<MaterialPage/>} />            
             </Routes>
         </div>

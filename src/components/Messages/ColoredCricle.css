@@ -1,0 +1,11 @@
+.colored-circle {
+    position: absolute;
+    top: 165px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border-style: solid;
+    background-color: lawngreen;
+    border-color: transparent;
+}
