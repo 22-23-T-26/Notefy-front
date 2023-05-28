@@ -35,7 +35,7 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
     formValues.paymentFlag = isPaid;
     formValues.price = isPaid ? parseInt(price) : 0;
     formValues.category = selectedCategory
-    formValues.subject=1
+    formValues.subject = formValues.subject ? formValues.subject : 1;
 
     try {
       await CreateMaterial(formValues);
@@ -53,17 +53,25 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
         <Form ref={formRef} onSubmit={handleSubmit}>
           <Form.Group className="mb-2" controlId="title">
             <Form.Label>Наслов</Form.Label>
-            <Form.Control onChange={handleChange} style={{background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);"}} type="text" placeholder="" />
+            <Form.Control onChange={handleChange} style={{ background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);" }} type="text" placeholder="" />
           </Form.Group>
 
           <Form.Group className="mb-2" controlId="description">
             <Form.Label>Опис</Form.Label>
-            <Form.Control onChange={handleChange} style={{background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);"}} type="text" placeholder="" />
+            <Form.Control onChange={handleChange} style={{ background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);" }} type="text" placeholder="" />
           </Form.Group>
 
           <Form.Group className="mb-2" controlId="subject">
             <Form.Label>Предмет</Form.Label>
-            <Form.Control onChange={handleChange} style={{background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);"}} type="text" placeholder="" />
+            <Form.Select
+              onChange={handleChangeCategory}
+              value={selectedCategory}
+              style={{ background: '#F4F4F4', borderRadius: '12px', boxShadow: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)' }}
+            >
+              <option value='1' selected>General</option>
+              <option value='2'>Math</option>
+              <option value='3'>Programming</option>
+            </Form.Select>
           </Form.Group>
 
           <Form.Group className='mb-2' controlId='category'>
@@ -82,14 +90,14 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
 
           <Form.Group className="mb-2" controlId="url">
             <Form.Label>Линк</Form.Label>
-            <Form.Control onChange={handleChange} style={{background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);"}} type="text" placeholder="" />
+            <Form.Control onChange={handleChange} style={{ background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);" }} type="text" placeholder="" />
           </Form.Group>
 
           {isPaid && (
             <Form.Group controlId="formPrice" className="mb-2">
               <Form.Label>Цена (мкд)</Form.Label>
               <Form.Control
-                style={{background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);"}}
+                style={{ background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);" }}
                 type="number"
                 placeholder=""
                 value={price}
@@ -118,10 +126,10 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
             </Form.Group>
           </div> */}
           <div className='d-flex flex-row justify-content-center gap-5'>
-            <Button onClick={closeModal} style={{width:'50%', background: "#F4F4F4", borderRadius: "12px", color: 'black', border: "0"}}>
+            <Button onClick={closeModal} style={{ width: '50%', background: "#F4F4F4", borderRadius: "12px", color: 'black', border: "0" }}>
               Откажи
             </Button>
-            <Button type='submit' style={{width:'50%', background: "#D7D7D7", borderRadius: "12px", color: 'black', border: "0"}}>
+            <Button type='submit' style={{ width: '50%', background: "#D7D7D7", borderRadius: "12px", color: 'black', border: "0" }}>
               Објави
             </Button>
           </div>

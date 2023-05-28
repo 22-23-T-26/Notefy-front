@@ -16,7 +16,7 @@ const LoginForm = () => {
         try {
             const res = await login(loginData.username, loginData.password);
             localStorage.setItem("token", res);
-            navigate("/forum");
+            navigate("/materials");
         } catch (error) {
             if (error.response?.data?.fieldErrors) {
                 const acc = {}
@@ -106,7 +106,7 @@ const RegisterForm = () => {
         try {
             const res = await register(registerData);
             localStorage.setItem("token", res);
-            navigate("/forum");
+            navigate("/materials");
         } catch (error) {
             if (error.response?.data?.fieldErrors) {
                 const acc = {}
@@ -210,7 +210,7 @@ const LoginRegisterForm = () => {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            navigate("/forum");
+            navigate("/materials");
         }
     }, []);
     const handleTabChange = (tab) => {
