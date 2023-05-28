@@ -10,6 +10,10 @@ import MaterialsService from '../../services/MaterialsService';
 const MaterialsPage = () => {
     const [showModal, setShowModal] = useState(false);
     const [data, setData] = useState([])
+    const [selectedPayment, setSelectedPayment] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('')
+    const [filteredData, setFilteredData] = useState([]);
+
     const {GetAll} = MaterialsService()
     const openModal = () => {
       setShowModal(true);
@@ -23,7 +27,6 @@ const MaterialsPage = () => {
     const fetchData = () => {
         GetAll()
         .then(pod => {
-        console.log(pod);
         if (pod && pod.length > 0) {
             setData(pod);
         }
@@ -34,8 +37,38 @@ const MaterialsPage = () => {
     };
 
     useEffect(() => {
-    fetchData(); // Initial data fetch
+      fetchData();
     }, []);
+  
+    useEffect(() => {
+      if (selectedPayment === 'Со плаќање') {
+        setFilteredData(data.filter(item => item.paymentFlag === true));
+      } else if (selectedPayment === 'Бесплатно') {
+        setFilteredData(data.filter(item => item.paymentFlag === false));
+      } else {
+        setFilteredData(data);
+      }
+    }, [data, selectedPayment]);
+
+    useEffect(() => {
+        if (selectedCategory === 'BOOK') {
+          setFilteredData(data.filter(item => item.category === 'BOOK'));
+        } else if (selectedCategory === 'SCRIPT') {
+          setFilteredData(data.filter(item => item.category === 'SCRIPT'));
+        } else if (selectedCategory === 'EXAM') {
+            setFilteredData(data.filter(item => item.category === 'EXAM'));
+        } else {
+            setFilteredData(data);
+        }
+      }, [data, selectedCategory]);
+
+    const handleFilterChange = (value) => {
+        console.log(value)
+        if(value==='BOOK' || value==='SCRIPT' || value==='EXAM')
+            setSelectedCategory(value)
+        else
+            setSelectedPayment(value);
+    };
 
     return (
         <div className='d-flex flex-row'>
@@ -45,8 +78,8 @@ const MaterialsPage = () => {
                     <HiDocumentAdd className='text-dark' size={30} onClick={openModal}/>
                 </div>
                 <div className='d-flex flex-column align-items-center justify-content-center gap-3'>
-                {data?.length > 0 ? (
-                    data.map((item, index) => (
+                {filteredData?.length > 0 ? (
+                    filteredData.map((item, index) => (
 
                     <MaterialsCard key={index} data={item} />
                     ))
@@ -56,7 +89,7 @@ const MaterialsPage = () => {
                 </div>
             </div>
             <div className='right-wrapper'>
-                <MaterialsFilter/>
+                <MaterialsFilter onFilterChange={handleFilterChange}/>
             </div>
             {showModal && (
                 <NewMaterialModal showModal={showModal} handleClose={closeModal} />

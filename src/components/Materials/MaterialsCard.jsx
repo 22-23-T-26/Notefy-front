@@ -4,7 +4,6 @@ import { RiFileTextLine } from 'react-icons/ri';
 import { Link } from "react-router-dom";
 
 const MaterialsCard = ({data}) => {
-    console.log(data)
     return (
         <Link to={`/material/${data.id}`} state={{ materialData: data }} style={{ textDecoration: 'none', width: '80%', color: 'black' }}>
             <Card className="d-flex flex-row align-items-center justify-content-between" style={{ width: '100%', height: '80px', background: "#D9D9D9", borderRadius: "10px" }}>
