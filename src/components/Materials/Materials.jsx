@@ -9,9 +9,8 @@ import MaterialsService from '../../services/MaterialsService';
 
 const MaterialsPage = () => {
     const [showModal, setShowModal] = useState(false);
-    const [data, setData] = useState()
-    const { GetAll } = MaterialsService();
-
+    const [data, setData] = useState([])
+    const {GetAll} = MaterialsService()
     const openModal = () => {
       setShowModal(true);
     };
@@ -23,9 +22,10 @@ const MaterialsPage = () => {
     useEffect(()=>{
         GetAll()
         .then(pod => {
-            setData(pod.data)
+            if(pod && pod.length>0)
+                setData(pod.data)
         })
-    },[setData])
+    },[])
 
     return (
         <div className='d-flex flex-row'>

@@ -11,7 +11,7 @@ const LoginForm = () => {
         event.preventDefault();
         try {
             const res = await login(loginData.username, loginData.password);
-            localStorage.setItem("token", res.data);
+            localStorage.setItem("token", res);
         } catch (error) {
             if (error.response?.data?.fieldErrors) {
                 const acc = {}

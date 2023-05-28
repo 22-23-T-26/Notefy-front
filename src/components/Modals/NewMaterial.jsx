@@ -2,10 +2,27 @@ import React, { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import MaterialsService from '../../services/MaterialsService';
 
 const NewMaterialModal = ({ showModal, handleClose }) => {
+  const formRef = useRef(null);
+  const {CreateMaterial} = MaterialsService()
+
   const closeModal = () => {
     handleClose();
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event.target.value)
+    const formData = new FormData(formRef.current);
+    console.log(formData)
+    try {
+      await CreateMaterial(formData);
+      closeModal();
+    } catch (error) {
+      console.error('Error creating material:', error);
+    }
   };
 
   return (
@@ -14,7 +31,7 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
         <Modal.Title>Објави материјали</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form ref={formRef} onSubmit={handleSubmit}>
           <Form.Group className="mb-2" controlId="formTitle">
             <Form.Label>Наслов</Form.Label>
             <Form.Control style={{background: "#F4F4F4", borderRadius: "12px", boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25);"}} type="text" placeholder="" />
@@ -54,7 +71,7 @@ const NewMaterialModal = ({ showModal, handleClose }) => {
             <Button onClick={closeModal} style={{width:'50%', background: "#F4F4F4", borderRadius: "12px", color: 'black', border: "0"}}>
               Откажи
             </Button>
-            <Button onClick={closeModal} type='submit' style={{width:'50%', background: "#D7D7D7", borderRadius: "12px", color: 'black', border: "0"}}>
+            <Button type='submit' style={{width:'50%', background: "#D7D7D7", borderRadius: "12px", color: 'black', border: "0"}}>
               Објави
             </Button>
           </div>
