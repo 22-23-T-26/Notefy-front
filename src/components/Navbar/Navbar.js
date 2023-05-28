@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faUserCircle, faSignOut } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
     return (
@@ -11,9 +11,9 @@ const Navbar = () => {
                     <img className="logo-notefy" src="./logo2.png" alt="logo" width={100} />
                 </a>
                 <div className="h-search">
-                    <input type="text" placeholder="" style={{background: "#ffffff"}}/>
+                    <input type="text" placeholder="" style={{ background: "#ffffff" }} />
                     <button className="search-button">
-                        <FontAwesomeIcon icon={faSearch} style={{color: "#84A59D"}}/>
+                        <FontAwesomeIcon icon={faSearch} style={{ color: "#84A59D" }} />
                     </button>
                 </div>
                 <div className="h-menu">
@@ -32,6 +32,15 @@ const Navbar = () => {
                             style={{ fontSize: "24px", color: "#84A59D" }}
                         />
                     </a>
+                    <span style={{ cursor: "pointer" }} onClick={() => {
+                        localStorage.removeItem("token");
+                        window.location.href = "/";
+                    }}>
+                        <FontAwesomeIcon
+                            icon={faSignOut}
+                            style={{ fontSize: "24px", color: "#84A59D" }}
+                        />
+                    </span>
                 </div>
             </div>
         </section>
